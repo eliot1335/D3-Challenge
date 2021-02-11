@@ -19,3 +19,10 @@ var height = svgHeight - margin.top - margin.bottom;
 var dataFile = "assets/data/data.csv"
 
 d3.csv(dataFile).then(function)
+
+
+// Append svg
+var svg = d3.select(".chart")
+  .append("svg")
+  .attr("height", svgHeight)
+  .attr("width", svgWidth);
