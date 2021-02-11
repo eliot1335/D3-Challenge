@@ -30,6 +30,13 @@ var chartGroup = svg
 // x for in poverty(%)
 // y for lacks healthcare(%)
 
+
+// Scales and Axes
+// Labels
+
+// Chart titles
+// Commentary optional
+
 // function used for updating x-scale var upon click on axis label
 function xScale(csvData, chosenXAxis) {
   var xLinearScale = d3.scaleLinear()
@@ -40,6 +47,20 @@ function xScale(csvData, chosenXAxis) {
 
   return xLinearScale;
 }
+
+// function used for updating xAxis var upon click on axis label
+function renderAxes(newXScale, xAxis) {
+  var bottomAxis = d3.axisBottom(newXScale);
+
+  xAxis.transition()
+    .duration(1000)
+    .call(bottomAxis);
+
+  return xAxis;
+}
+
+
+
 
 
 /*
