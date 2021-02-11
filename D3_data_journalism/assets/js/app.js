@@ -21,7 +21,12 @@ var svg = d3
     .attr("width", svgWidth)
     .attr("height", svgHeight);
 
+// Append an SVG group
+var chartGroup = svg
+    .append("g")
+    .attr("transform", `transate(${margin.left}, ${margin.top})`);
 
+// Initial Params
 
 
 
