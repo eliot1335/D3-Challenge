@@ -27,9 +27,19 @@ var chartGroup = svg
     .attr("transform", `transate(${margin.left}, ${margin.top})`);
 
 // Initial Params
+// x for in poverty(%)
+// y for lacks healthcare(%)
 
+// function used for updating x-scale var upon click on axis label
+function xScale(csvData, chosenXAxis) {
+  var xLinearScale = d3.scaleLinear()
+    .domain([d3.min(csvData, d => d[chosenXAxis]) * 0.8,
+      d3.max(csvData, d => d[chosenXAxis]) * 1.2
+    ])
+    .range([0, width]);
 
-
+  return xLinearScale;
+}
 
 
 /*
