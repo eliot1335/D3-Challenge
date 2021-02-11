@@ -14,6 +14,78 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
+
+// append the svg object to the body of the page
+var svg = d3
+  .select("#scatter")
+  .apend("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight)
+  .append("g")
+  .attr("transform", `transate(${margin.left}, ${margin.top})`);
+
+
+// read the data
+d3.csv("assets/data/data.csv", function(data){
+    // add x axis
+    var x = d3.scaleLinear()
+      .domain([0, 4000])
+      .range([0, width]);
+    svg.append("g")
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(x));
+    
+    // add y axis
+    var y = d3.scaleLinear()
+      .domain([0, 50000])
+      .range([height, 0]);
+    svgappend("g")
+      .call(d3.axisLeft(y));
+
+    // add circles
+    svg.append("g")
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("cx", function (d) { return x(d.age); })
+        .attr("cy", function (d) { return y(d.income); })
+        .attr("r", 1.5)
+        .style("fill", "#69b3a2")
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // Create an SVG wrapper, append an SVG group that will hold the chart
 var svg = d3
     .select("#scatter")
@@ -26,6 +98,7 @@ var chartGroup = svg
     .append("g")
     .attr("transform", `transate(${margin.left}, ${margin.top})`);
 
+
 // Initial Params
 // x for in poverty(%)
 // y for lacks healthcare(%)
@@ -36,6 +109,7 @@ var chartGroup = svg
 
 // Chart titles
 // Commentary optional
+
 
 // function used for updating x-scale var upon click on axis label
 function xScale(csvData, chosenXAxis) {
@@ -59,12 +133,6 @@ function renderAxes(newXScale, xAxis) {
   return xAxis;
 }
 
-
-
-
-
-/*
-
 // Import Data
 var dataFile = "assets/data/data.csv"
 
@@ -80,4 +148,4 @@ var svg = d3.select(".chart")
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  */
+*/
