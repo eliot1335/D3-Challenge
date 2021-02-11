@@ -18,7 +18,7 @@ var height = svgHeight - margin.top - margin.bottom;
 // append the svg object to the body of the page
 var svg = d3
   .select("#scatter")
-  .apend("svg")
+  .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight)
   .append("g")
@@ -39,7 +39,7 @@ d3.csv("assets/data/data.csv", function(data){
     var y = d3.scaleLinear()
       .domain([0, 50000])
       .range([height, 0]);
-    svgappend("g")
+    svg.append("g")
       .call(d3.axisLeft(y));
 
     // add circles
