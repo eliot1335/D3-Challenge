@@ -57,18 +57,7 @@ d3.csv("assets/data/data.csv").then(function (healthData) {
 
     chartGroup.append("g")
         .call(leftAxis);
-    
-    // Create circles
-    chartGroup.selectAll("circle")
-        .data(healthData)
-        .enter()
-        .append("circle")
-        .attr("cx", d => xLinearScale(d.poverty))
-        .attr("cy", d => yLinearScale(d.healthcare))
-        .style("r", 10)
-        .style("fill", "teal")
-        .style("opacity", "0.6");
-    
+
     // Create axes labels
     chartGroup.append("text")
         .attr("transform", "rotate(-90)")
@@ -81,6 +70,19 @@ d3.csv("assets/data/data.csv").then(function (healthData) {
         .attr("transform", `translate(${width / 2}, ${height + margin.top + 10})`)
         .attr("class", "axisText")
         .text("In Poverty (%)");
+        
+    // Create circles
+    chartGroup.selectAll("circle")
+        .data(healthData)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xLinearScale(d.poverty))
+        .attr("cy", d => yLinearScale(d.healthcare))
+        .style("r", 10)
+        .style("fill", "teal")
+        .style("opacity", "0.6");
+    
+
 
     // Create circle labels
     chartGroup.selectAll()
