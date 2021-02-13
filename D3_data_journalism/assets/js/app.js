@@ -82,5 +82,16 @@ d3.csv("assets/data/data.csv").then(function (healthData) {
         .attr("class", "axisText")
         .text("In Poverty (%)");
 
+    // Create circle labels
+    chartGroup.selectAll()
+        .data(healthData)
+        .enter()
+        .append("text")
+        .attr("x", d => xLinearScale(d.poverty) -6.5)
+        .attr("y", d => yLinearScale(d.healthcare) + 3)
+        .style("fill", "white")
+        .style("font-size", "8.5")
+        .text(d => d.abbr);
+
 });
 
