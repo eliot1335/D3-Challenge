@@ -26,3 +26,13 @@ var chartGroup = svg
             .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+// Import Data
+d3.csv("assets/data/data.csv").ten(function (healthData) {
+
+    // Parse the data/Cast as numbers
+    healthData.forEach(function (data) {
+        data.poverty = +data.poverty;
+        data.healthcare = +data.healthcare;
+    });
+})
+
