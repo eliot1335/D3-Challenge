@@ -1,6 +1,6 @@
-# D3 Homework - Data Journalism and D3
+#Data Journalism and D3
 
-In this homework exercise, I will be practicing using D3 to create data visualizations.
+In this exercise, I will be practicing using D3 to create data visualizations.
 
 The goal is to create a scatter plot between two columns of the dataset provided. In my exercise, I will be using the exact same ones as the homework instruction: Healthcare vs. Poverty.
 
